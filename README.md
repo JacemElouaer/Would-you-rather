@@ -1,70 +1,121 @@
-# Getting Started with Create React App
+# Would-You-Rather...-
+react application  that allow predefined users to login , add question , vote on their questions and others and also shows stats ... 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### `installing`
 
-## Available Scripts
 
-In the project directory, you can run:
+```js
+git clone https://github.com/JacemElouaer/My_Reads_React.git
+```
+```js
+install all project dependencies with `npm install`
+```
+```js
+ start the development server with `npm start
+```
+```js
+ Also some needed packege like react-router-dom ,  react-redux ,  redux 
+ use `npm install ${pakege-name}`
+```
+```js
+ bootstrab
+ npm install react-bootstrap@next bootstrap@5.1.0
+```
 
-### `npm start`
+## What You're Getting
+```bash
+├── CONTRIBUTING.md
+├── README.md - This file.
+├── SEARCH_TERMS.md # The whitelisted short collection of available search terms for you to use with your app.
+├── package.json # npm package manager file. It's unlikely that you'll need to modify this.
+├── public
+│   ├── favicon.ico # React Icon, You may change if you wish.
+│   └── index.html # DO NOT MODIFY
+└── src
+    ├── Actions  # Actions for the app 
+        ├── authedUser.js # authed user actions like set authentification
+        ├── questions.js # questions actions (add question).
+        ├── shared.js # receives data 
+        ├── users.js # users actions
+    ├── components # This is the root of your app. Contains static HTML right now.
+        ├── AnswerQuestion.js 
+        ├── App.js 
+        ├── Home.js 
+        ├── LeaderBoard.js
+        ├── Login.js
+        ├── Nav.js
+        ├── NewQuestion.js
+        ├── Question.js
+        ├── QuestionAnswered.js
+        ├── QuestionNav.js
+        ├── Questions.js
+        ├── QuestionStats.js
+        ├── UserLeaderBoard
+    ├── images
+        ├── anonymos.jpg
+        ├── login-image.PNG
+    ├── middlewares
+        ├── index.js
+        ├── logger.js
+    ├── reducers
+        ├── authedUser.js
+        ├── index.js
+        ├── question.js
+        ├── users.js
+    ├── utils
+        ├── _DATA.js
+        ├── api.js
+    ├── index.js # Global styles. You probably won't need to change anything here.
+    ├── index.css # You should not need to modify this file. It is used for DOM rendering only.
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Backend Server
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+To simplify your development process, we've provided a backend server for you to develop against. The provided file [`_DATA.js`](src/_DATA.js) contains the methods you will need to perform necessary operations on the backend but we will be using the (src/api.js) :
 
-### `npm test`
+* [`getInitialData`](#get all questions and users info  )
+* [`saveQuestionAnswer`](#save questions answers)
+* [`saveQuestion`](#save question)
+* [`prepareQuestion`](#prepare question before adding it)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+### `getInitialData`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Method Signature:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```js
+getInitialData()
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* Returns a Promise which resolves to a JSON object containing a collection of questions and users objects.
+* This collection represents the books currently in questions list and th users list in your app.
 
-### `npm run eject`
+### `saveQuestionAnswer`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Method Signature:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```js
+saveQuestionAnswer(info)  info :   { authedU, id, answer}
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+* authedU: `<String>` containing the `id` of the current loged in user
+* id: `<String>` contains the `id` of the question answered 
+* answer : `<String>` the question's answer
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### `saveQuestion` 
+Method Signature:
 
-## Learn More
+```js
+saveQuestion(question)  question :   { optionOneText, optionTwoText, author }
+```
+* optionOneText: `<String>` text of option One . 
+* optionTwoText: `<String>` // .  
+* author : `<String>` the logged in user.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Importan
+styles are not all used . 
+make sure to download bootsrap package.
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
