@@ -17,6 +17,7 @@ install all project dependencies with `npm install`
  Also some needed packege like react-router-dom ,  react-redux ,  redux 
  use `npm install ${pakege-name}`
 ```
+### style installing 
 ```js
  bootstrab
  npm install react-bootstrap@next bootstrap@5.1.0
@@ -38,35 +39,36 @@ install all project dependencies with `npm install`
         ├── shared.js # receives data 
         ├── users.js # users actions
     ├── components # This is the root of your app. Contains static HTML right now.
-        ├── AnswerQuestion.js 
-        ├── App.js 
-        ├── Home.js 
-        ├── LeaderBoard.js
-        ├── Login.js
-        ├── Nav.js
-        ├── NewQuestion.js
-        ├── Question.js
-        ├── QuestionAnswered.js
-        ├── QuestionNav.js
-        ├── Questions.js
-        ├── QuestionStats.js
-        ├── UserLeaderBoard
+        ├── AnswerQuestion.js  # view holding the form to answer the question
+        ├── App.js # the app organisation and router initialisation
+        ├── Home.js # home and holder of answered and unaswered question
+        ├── LeaderBoard.js # holds all users and some info ..
+        ├── Login.js # login view
+        ├── Nav.js # Navigation bar (bootstrap template)
+        ├── NewQuestion.js # view hold the form to a new Question
+        ├── Question.js # view of a single question
+        ├── QuestionAnswered.js # holding all answered questions
+        ├── QuestionNav.js # the Nav of answered and unanswered question
+        ├── Questions.js  # holder of all questions
+        ├── QuestionStats.js  # holder of question statistics
+        ├── UserLeaderBoard # single view for a single user info ..
     ├── images
-        ├── anonymos.jpg
-        ├── login-image.PNG
+        ├── anonymos.jpg #  image that will show off if the authedUser is missing
+        ├── login-image.PNG # image that will show off in the login view
     ├── middlewares
         ├── index.js
-        ├── logger.js
+        ├── logger.js 
     ├── reducers
-        ├── authedUser.js
-        ├── index.js
-        ├── question.js
-        ├── users.js
+        ├── authedUser.js # reducer of authed user 
+        ├── index.js 
+        ├── question.js # //
+        ├── users.js # //
     ├── utils
         ├── _DATA.js
         ├── api.js
     ├── index.js # Global styles. You probably won't need to change anything here.
     ├── index.css # You should not need to modify this file. It is used for DOM rendering only.
+    ├── nav.css # nav is a template bar from bootsrap so nav.css contains bootstrap package code .
 ```
 
 ## Backend Server
@@ -115,7 +117,7 @@ saveQuestion(question)  question :   { optionOneText, optionTwoText, author }
 
 ## Importan
 styles are not all used . 
-make sure to download bootsrap package.
+make sure to download bootsrap package. Just for the progressbar.
 
 
 
