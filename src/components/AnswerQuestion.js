@@ -11,7 +11,8 @@ export class AnswerQuestion extends Component {
         super(props)
         this.state = {
             answer : "",
-            answered: false
+            answered: false, 
+            direction: "/"
                 }
     }
     componentDidMount(){
@@ -22,7 +23,8 @@ export class AnswerQuestion extends Component {
         else {
         this.setState({ 
             answered :  false
-        })}
+        })} 
+        this.props.location.setState({})
     }
     
     onChangeValue = (e)=>{
@@ -96,7 +98,7 @@ export class AnswerQuestion extends Component {
             }
             </div>
             : 
-            <Redirect to='/NotFound'> </Redirect>
+            <Redirect to={{pathname :  '/NotFound' }}> </Redirect>
             }
                 
 

@@ -16,7 +16,6 @@ class Question extends Component {
         const {question ,  id ,  authedUser}=  this.props? this.props  : null;
         const { optionOne,user}= question; 
         const questionType =  "unanswered"  ; 
-        // console.log ("this is the id"  ,   id)
         return (
             <Fragment>
                 { user? 

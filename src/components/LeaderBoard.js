@@ -13,7 +13,8 @@ export class LeaderBoard extends Component {
            < Fragment>       
             {  authedUser["authedUser"]===""?
             
-             <Redirect to='/login'> {alert('login first pleaze !!!')}</Redirect>   
+             <Redirect to={{ pathname:'/login', 
+                         state : {target:   "/leaderboard"} }}> {alert('login first pleaze !!!')}</Redirect>   
                 : 
             <Fragment>         
             <div> 

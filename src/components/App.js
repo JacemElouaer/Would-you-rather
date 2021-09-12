@@ -28,8 +28,8 @@ class App extends Component{
           <div className="body">
                 <Route path='/'  exact component={Home}/>              
                 <Route path='/questions/:id/:questionType' component={AnswerQuestion}/>
-                <Route path='/login' exact component={Login}/>
-                <Route path ='/leaderboard' component={LeaderBoard}/> 
+                <Route path='/login' exact render={(props)=><Login {...props}/>}/>
+                <Route path ='/leaderboard'  component={LeaderBoard}/> 
                 <Route path='/add' component={NewQuestion}/> 
                 <Route path="/NotFound" component={NotFound}/> 
           </div>

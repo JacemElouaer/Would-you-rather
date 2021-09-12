@@ -15,13 +15,12 @@ class Nav extends Component {
       e.preventDefault();  
       console.log("this will change every thing")
       dispatch(handleLogOutAutedUser())
-      console.log(authedUser);
     }
   }
   render() { 
     const {authedUser ,  users} =   this.props;  
-    const  authedU =  !authedUser.authedUser==="" ? authedUser["authedUser"] : undefined ;  
-    console.log(authedU);
+    const  authedU =  authedUser["authedUser"]==="" ?  undefined: authedUser["authedUser"]; 
+    console.log("this is authedU" , authedU);
     const avatarURL =  authedU? users[authedU].avatarURL : undefined; 
   
     return (
@@ -72,7 +71,6 @@ class Nav extends Component {
                 </div> : 
                  <Link className="nav-link"  to="/login">Login</Link>
               }
-              <button onClick={this.logout}>log out</button>
               </li>
             </ul>
             <form className="d-flex">
