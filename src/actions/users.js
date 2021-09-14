@@ -20,9 +20,7 @@ export function addQuestion(id, authedUser) {
     }
 }
 export function handleAddQuestionUser(id ,  authedUser){
-    console.log("this is user",id)
     return (dispatch)=>{
-        console.log("this is the add questio in add user");  
         dispatch(addQuestion(id ,  authedUser))
     }
 }

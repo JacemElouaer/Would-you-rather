@@ -6,7 +6,6 @@ import {
 export default function authedUser (state = {}, action = ""){
     switch (action.type){
     case SET_AUTHED_USER:  
-    console.log(action.id)
         return {
             ...state, 
             authedUser :action.id

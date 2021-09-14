@@ -175,8 +175,6 @@ export function _saveQuestion (question) {
 }
 
 export function _saveQuestionAnswer ({ authedU, id, answer }) {
-  console.log("start the process")
-  console.log(questions[id])
   return new Promise((res, rej) => {
     setTimeout(() => {
       users = {

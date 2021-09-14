@@ -43,7 +43,6 @@ export class AnswerQuestion extends Component {
                 this.setState({
                     answered:  true
                   }) 
-                  console.log(id ,  authedU , answer)
                   
                 dispatch(handleanswerQuestionU({ authedU, id ,answer}));  
                 dispatch(handleanswerQuestion({ authedU, id ,answer}));  

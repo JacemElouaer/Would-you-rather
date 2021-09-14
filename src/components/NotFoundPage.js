@@ -8,7 +8,6 @@ class  NotFound  extends Component {
     
     render() {
         const  {authedUser} =  this.props
-        console.log(this.props.location.pathname)
         
         
     return (

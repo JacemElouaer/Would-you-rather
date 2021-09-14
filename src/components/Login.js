@@ -35,7 +35,6 @@ class Login extends Component {
         })
     }
     componentDidMount(props) {
-        console.log("this is the target",this.props)
         this.props.location.state?
         this.setState({
             direction : this.props.location.state.target
