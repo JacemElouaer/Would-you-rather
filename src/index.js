@@ -11,6 +11,7 @@ import {BrowserRouter}  from 'react-router-dom'
 
 const store = createStore(reducer , middleware)
 ReactDOM.render(
+  
   <BrowserRouter>
   <Provider store={store}>
     <App />
