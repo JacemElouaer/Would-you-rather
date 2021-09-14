@@ -31,13 +31,9 @@ export class NewQuestion extends Component {
         e.preventDefault();
         const  {dispatch ,authedUser} =  this.props ; 
         const  {optionOneText, optionTwoText} = this.state;
-        console.log("step  1") 
-        console.log(authedUser["authedUser"])
 
         if(authedUser["authedUser"]!==""){
-            console.log("step  2")
             const author =  authedUser["authedUser"]
-            console.log("Am authedU",author)
             dispatch(handleAddQuestion({optionOneText, optionTwoText, author}))
             this.setState({
                 optionOne :"", 

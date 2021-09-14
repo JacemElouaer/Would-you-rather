@@ -1,16 +1,31 @@
-import React, { Component } from 'react'
+import React, { Component  , Fragment } from 'react'
 import { connect } from 'react-redux'
 import Questions from './Questions'
+import {Redirect} from "react-router-dom"
+
 
 
 export class Home extends Component {
+    
     render() {
-        
+        const {authedUser}  =this.props
         return (
+            <Fragment>
+            {  authedUser["authedUser"]===""?
+            <Redirect to={{ pathname:'/NotFound', 
+            state : {target:"/"} }}></Redirect>:
             <div>    
                 <Questions/>
             </div>
+            
+        }
+        </Fragment>
         )
     }
 }
-export default connect()(Home)
+function mapStateToProps({authedUser}){
+    return {
+        authedUser
+    }
+}
+export default connect(mapStateToProps)(Home)

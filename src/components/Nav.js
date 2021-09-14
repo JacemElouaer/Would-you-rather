@@ -20,7 +20,6 @@ class Nav extends Component {
   render() { 
     const {authedUser ,  users} =   this.props;  
     const  authedU =  authedUser["authedUser"]==="" ?  undefined: authedUser["authedUser"]; 
-    console.log("this is authedU" , authedU);
     const avatarURL =  authedU? users[authedU].avatarURL : undefined; 
   
     return (
