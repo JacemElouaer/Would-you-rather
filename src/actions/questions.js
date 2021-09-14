@@ -41,9 +41,9 @@ export function addQuestion(question){
 export function handleAddQuestion(question){
     const {optionOneText, optionTwoText, author} = question
     return (dispatch)=>{
-        dispatch(addQuestion(question))
         return saveQuestion({optionOneText, optionTwoText, author}).then(formatted=>{
-            dispatch(handleAddQuestionUser(formatted["id"],formatted["author"]))
+            dispatch(handleAddQuestionUser(formatted["id"],formatted["author"])); 
+            dispatch(addQuestion(formatted));   
         }).catch((e)=>{
             console.log("hello error", e)
         })

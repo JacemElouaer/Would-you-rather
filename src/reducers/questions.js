@@ -2,8 +2,7 @@ import {
     RECEIVE_QUESTION,
     ANSWER_QUESTION ,
     ADD_QUESTION
-} from '../actions/questions'; 
-import {formatQuestion} from '../utils/_DATA'; 
+} from '../actions/questions';  
 
 
 export default function questions(state={} , action){
@@ -26,13 +25,11 @@ export default function questions(state={} , action){
                 } 
             }
         case ADD_QUESTION : 
-            const {question} = action;  
-            const formattedQuestion = formatQuestion(question);
+            const {question } = action;  
             return {
                 ...state, 
-                [formattedQuestion.id]:formattedQuestion
+                [question.id]:question
             }
-
         default :  
             return state 
     }

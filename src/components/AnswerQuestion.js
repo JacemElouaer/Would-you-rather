@@ -37,14 +37,18 @@ export class AnswerQuestion extends Component {
         const {dispatch ,  authedUser , id } =  this.props
         const  authedU =  authedUser["authedUser"];
         const {answer} =  this.state
-        this.setState({
-          answered:  true
-        }) 
         if (answer==="") { 
         alert('You did not choose an answer')} 
-        dispatch(handleanswerQuestion({ authedU, id ,answer}));  
-        dispatch(handleanswerQuestionU({ authedU, id ,answer}));  
-    }
+            else{
+                this.setState({
+                    answered:  true
+                  }) 
+                  console.log(id ,  authedU , answer)
+                  
+                dispatch(handleanswerQuestionU({ authedU, id ,answer}));  
+                dispatch(handleanswerQuestion({ authedU, id ,answer}));  
+            }
+        }
     render() {
         // const {id ,question} = this.props
         const  {question ,  user , authedUser , id} = this.props? this.props :  undefined  
