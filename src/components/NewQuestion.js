@@ -56,7 +56,7 @@ export class NewQuestion extends Component {
             <Fragment>
                 {
                     authedUser["authedUser"]===""?
-                    <Redirect to={{pathname :"/NotFound" ,
+                    <Redirect to={{pathname :"/login" ,
                                     state:{target : "/add"} }}></Redirect>:
                     <div className="new-question">
                     <div className="new-question-header">

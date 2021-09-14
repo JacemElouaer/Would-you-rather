@@ -41,12 +41,20 @@ class Login extends Component {
         })
     }
     render() {
-        const  {users , ids} =  this.props 
+        const  {users , ids ,idsQ} =  this.props 
         const  {authedUser ,  submit ,  direction } = this.state
+        const id =  direction.split('/')[2]
+        console.log(id)
+        
         if(submit) {
-            return <Redirect to={direction}>  </Redirect>            
+            if (typeof(id)!=="undefined" && (!idsQ.includes(id))) {
+                console.log(direction)
+                console.log(id)
+                return <Redirect to={`${direction}/Error`}></Redirect>
+            }
+            return <Redirect to={direction}></Redirect>            
         }
-       
+        
         return (
             <Fragment>
                 <div className="login-box">
@@ -74,10 +82,12 @@ class Login extends Component {
         )
     }
 }
-function mapStateToProps({users}){
+function mapStateToProps({users , questions}){
+    let idsQ=  Object.keys(questions).sort((a, b) =>questions[b].timestamp -  questions[a].timestamp); 
     return {
         users, 
-        ids :  Object.keys(users)   
+        ids :  Object.keys(users)  ,
+        idsQ 
     }
 }
 

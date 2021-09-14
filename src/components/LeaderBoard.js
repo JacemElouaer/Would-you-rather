@@ -11,7 +11,7 @@ export class LeaderBoard extends Component {
            < Fragment>       
             {  authedUser["authedUser"]===""?
             
-             <Redirect to={{ pathname:'/NotFound', 
+             <Redirect to={{ pathname:'/login', 
                          state : {target:"/leaderboard"} }}></Redirect>: 
              <div> {userList.map((user)=> 
                     <UserLeaderBoard  key={user} user= {user}></UserLeaderBoard> )}

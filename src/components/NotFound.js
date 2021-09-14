@@ -42,7 +42,7 @@ class  NotFound  extends Component {
                 login pleaze
             </span>:
             <span className="card-subtitle mb-2 text-muted text-center">
-            Page Could Not Be Found  Error 
+            Page Could Not Be Found -- Error 
         </span>
             }
 
@@ -57,14 +57,14 @@ class  NotFound  extends Component {
         </div>
     </div>
 </div>: 
-    <Redirect to ={{pathname :"/login", state:{target:direction }}}></Redirect>
+    <Redirect to ={{pathname :"/login", state:{target:direction } }}></Redirect>
 }
         </Fragment>
     )
 }
 }
-function mapStateToProps({authedUser})
-{ return {
+function mapStateToProps({authedUser}){ 
+    return {
     authedUser
 }}
 export default connect(mapStateToProps)(NotFound)
