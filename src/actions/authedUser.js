@@ -19,7 +19,6 @@ export function LogoutAuthedUser(){
     }
 }
 export function handleLogOutAutedUser(){
-    console.log("just enterd handle")
     return (dispatch) => {
         dispatch(LogoutAuthedUser())
     }

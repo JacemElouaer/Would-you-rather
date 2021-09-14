@@ -23,7 +23,6 @@ export function answerQuestion(info){
 } 
 export default function handleanswerQuestion(info){
     return (dispatch)=>{
-        console.log(info)
         dispatch(answerQuestion(info)) 
         
         return saveQuestionAnswer(info)
@@ -41,12 +40,9 @@ export function addQuestion(question){
 }
 export function handleAddQuestion(question){
     const {optionOneText, optionTwoText, author} = question
-    console.log("step  3")
-    console.log(author)
     return (dispatch)=>{
         dispatch(addQuestion(question))
         return saveQuestion({optionOneText, optionTwoText, author}).then(formatted=>{
-            console.log("this is authedUser" , formatted["author"])
             dispatch(handleAddQuestionUser(formatted["id"],formatted["author"]))
         }).catch((e)=>{
             console.log("hello error", e)

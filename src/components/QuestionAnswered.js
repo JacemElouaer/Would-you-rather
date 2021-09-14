@@ -22,7 +22,6 @@ class QuestionAnswered extends Component {
         
         const {question ,  id }=  this.props? this.props  : null;
         const {optionOne,user}= question; 
-        const questionType  =  "answered";
         return (
             <Fragment>
                 { user? 
@@ -44,7 +43,7 @@ class QuestionAnswered extends Component {
                                     <h6>You Answered for</h6> 
                                     <p>-- {optionOne.text} --</p>
                                 </div> 
-                                <Link  to={`/questions/${id}/${questionType}`} className="btn-question">View Poll</Link>
+                                <Link  to={`/questions/${id}`} className="btn-question">View Poll</Link>
                             </div> 
                         </div>
                     </div>

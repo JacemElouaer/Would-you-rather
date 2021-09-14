@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component ,  Fragment } from 'react';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import {connect}  from 'react-redux' ;  
+import { Redirect } from 'react-router-dom';
 
 export class QuestionStats extends Component {
     constructor(props) {
@@ -28,13 +29,14 @@ export class QuestionStats extends Component {
         const  authedU =  authedUser["authedUser"];
         const {optionOne,optionTwo} =  question? question : {undefined}; 
         const {rate_two,  rate_one} = this.state ;  
-        console.log("this is all",)
         const class_one  = users[authedU].answers[id]==="optionOne" ? "ans_result_modif" : "ans-results";
         const class_two  = users[authedU].answers[id]==="optionTwo" ? "ans_result_modif" : "ans-results";
         const rate_chosen =  users[authedU].answers[id]==="optionOne" ?  "choice-one" : "choice-two";   
         
        
         return (
+            <Fragment>
+            { authedU!==""?
             <div className="ans-question-center-res">
                     <div className="ans-question-res">
                         <div>
@@ -67,7 +69,10 @@ export class QuestionStats extends Component {
                             </div>
                         </div>
                     </div>
-                    </div>
+                    </div>: 
+                <Redirect></Redirect>
+                    }
+                    </Fragment>
         )
     }
 }

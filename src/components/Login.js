@@ -2,7 +2,7 @@ import React, { Component ,  Fragment } from 'react';
 import Login_img from '../images/login-image.PNG';
 import { connect }  from 'react-redux';
 import { handleSetAutedUser  } from '../actions/authedUser'; 
-import { Redirect } from  'react-router-dom' ;  
+import {  withRouter , Redirect } from  'react-router-dom' ;  
 
 
 
@@ -13,7 +13,15 @@ class Login extends Component {
         this.state = {
             authedUser :  undefined,
             submit :  false , 
+            direction :  "/",
         }
+    } 
+    componentDidMount() {
+        this.props.location.state?
+        this.setState({
+            direction : this.props.location.state.target
+        }):
+        console.log("No target available") 
     }
     login=(e)=>{
         e.preventDefault();
@@ -28,17 +36,17 @@ class Login extends Component {
     } 
     
     handleChange=(e)=>{
-        console.log('authed user selected')
         this.setState({
-            authedUser: e.target.value, 
+            authedUser: e.target.value,
         })
     }
     render() {
         const  {users , ids} =  this.props 
-        const  {authedUser ,  submit} = this.state
+        const  {authedUser ,  submit ,  direction } = this.state
         if(submit) {
-            return <Redirect to='/'>  </Redirect>            
+            return <Redirect to={direction}>  </Redirect>            
         }
+       
         return (
             <Fragment>
                 <div className="login-box">
@@ -73,4 +81,4 @@ function mapStateToProps({users}){
     }
 }
 
-export default connect(mapStateToProps)(Login)
+export default withRouter(connect(mapStateToProps)(Login))
