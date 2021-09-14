@@ -4,9 +4,7 @@ import {connect} from  "react-redux"
 
 class  NotFound  extends Component {
 
-    sleep(ms) {
-        return new Promise(resolve => setTimeout(resolve,ms));
-      }
+    
     render() {
         const  {authedUser} =  this.props
         
@@ -17,7 +15,6 @@ class  NotFound  extends Component {
         <Redirect to={{pathname:"/NotFound" , state:{target :this.props.location.pathname}}}></Redirect>:
         
             <div className="row justify-content-center">
-                {()=>this.sleep(2000)}
     <div className="col-md-12 col-sm-12">
         <div className="card shadow-lg border-0 rounded-lg mt-5 mx-auto" style={{width: "30rem"}}>
             <h3 className="card-header display-1 text-muted text-center">

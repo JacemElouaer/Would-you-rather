@@ -17,12 +17,12 @@ class  NotFound  extends Component {
             next: true
         })
     }
-    componentDidMount(props) {
+    componentDidMount() {
         this.props.location.state?
         this.setState({
             direction:this.props.location.state.target
         }):  
-        console.log("this is out of range")
+        console.log("no direction found")
     }
     render() {
         const {next,direction} =  this.state

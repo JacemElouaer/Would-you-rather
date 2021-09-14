@@ -52,8 +52,6 @@ export class AnswerQuestion extends Component {
         const  authedU =  authedUser["authedUser"];
         const {optionOne,optionTwo} =  question? question : {undefined};  
         const { answered} =  this.state; 
-        console.log(idsA ,  idsU)
-        console.log("this props" , this.props)
         return (
             <Fragment>
                 {authedU?

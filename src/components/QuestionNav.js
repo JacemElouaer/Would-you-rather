@@ -9,19 +9,9 @@ class QuestionNav extends Component {
     }
     
     render() {
-        const  {authedUser} =  this.props ;  
-        const authedU =  authedUser["authedUser"] ;  
     return (
          <Fragment>  
              <nav>
-                 
-                        {authedU===""? 
-                        <ul className="question-nav"> 
-                            <div className="login-first" href = "/login">
-                                    Please login first 
-                            </div>
-                        </ul>
-                        : 
                         <ul className="question-nav"> 
                             <li onClick={(e)=>this.change(e)} className="first-page">
                                 Unanswered questions
@@ -29,17 +19,13 @@ class QuestionNav extends Component {
                             <li onClick={(event)=>{this.change(event)}} className="second-page">
                                 answered questions
                             </li>
-                        </ul>}
+                        </ul>
                 
                  </nav>          
         </Fragment>
     )
 }
 }
-function mapStateToProps({authedUser}){
-    return {
-        authedUser
-    }
-}
 
-export default connect(mapStateToProps)(QuestionNav)
+
+export default connect()(QuestionNav)

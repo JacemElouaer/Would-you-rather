@@ -7,8 +7,6 @@ export class LeaderBoard extends Component {
 
     render() {
         const { userList  , authedUser} = this.props;   
-        console.log(authedUser);  
-        console.log("this is sorted list",userList);  
         return (   
            < Fragment>       
             {  authedUser["authedUser"]===""?

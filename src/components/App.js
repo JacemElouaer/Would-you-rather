@@ -30,7 +30,6 @@ class App extends Component{
   }
   render(){
     const {authedUser} = this.props
-    console.log("ceci", this.props)
     return(
       <Router>
         <Fragment>
