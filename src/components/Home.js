@@ -12,7 +12,7 @@ export class Home extends Component {
         return (
             <Fragment>
             {  authedUser["authedUser"]===""?
-            <Redirect to={{ pathname:'/NotFound', 
+            <Redirect to={{ pathname:'/login', 
             state : {target:"/"} }}></Redirect>:
             <div>    
                 <Questions/>

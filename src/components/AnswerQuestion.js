@@ -47,7 +47,7 @@ export class AnswerQuestion extends Component {
     }
     render() {
         // const {id ,question} = this.props
-        const  {question ,  user , authedUser , id  ,idsA , idsU} = this.props? this.props :  undefined  
+        const  {question ,  user , authedUser , id} = this.props? this.props :  undefined  
         const {name  , avatarURL} =  user? user :  {undefined};  
         const  authedU =  authedUser["authedUser"];
         const {optionOne,optionTwo} =  question? question : {undefined};  
@@ -88,7 +88,7 @@ export class AnswerQuestion extends Component {
             }
             </div>
             : 
-            <Redirect to={{pathname :  '/NotFound' , state:{target : `/questions/${id} `}}}> </Redirect>
+            <Redirect to={{pathname :  '/login' , state:{target : `/questions/${id} `}}}> </Redirect>
             }
                 
 
@@ -120,6 +120,7 @@ function mapStateToProps({users,questions , authedUser}, props) {
         questions,
         id : id.trim() ,
         question , 
+        ids,
         idsU : idsU,
         idsA :  idsA,
     }
