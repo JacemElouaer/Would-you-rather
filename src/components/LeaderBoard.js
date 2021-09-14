@@ -13,17 +13,12 @@ export class LeaderBoard extends Component {
            < Fragment>       
             {  authedUser["authedUser"]===""?
             
-             <Redirect to={{ pathname:'/login', 
-                         state : {target:   "/leaderboard"} }}> {alert('login first pleaze !!!')}</Redirect>   
-                : 
-            <Fragment>         
-            <div> 
-    
-                {userList.map((user)=> 
-                    <UserLeaderBoard  key={user} user= {user}></UserLeaderBoard>
-                )}
+             <Redirect to={{ pathname:'/NotFound', 
+                         state : {target:"/leaderboard"} }}></Redirect>: 
+             <div> {userList.map((user)=> 
+                    <UserLeaderBoard  key={user} user= {user}></UserLeaderBoard> )}
             </div>
-            </Fragment>}
+            }
             </Fragment>
 
         )

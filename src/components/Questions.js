@@ -40,7 +40,7 @@ export class Questions extends Component {
                             </ul>
                             :
                             <ul>
-                            {idsA.map((id) => <QuestionAnswered key={id} id={id} />)}
+                            {idsA.map((id) => <QuestionAnswered key={id} id={id}  />)}
                             </ul>}
                     </div> 
                 </div>
@@ -48,7 +48,7 @@ export class Questions extends Component {
         )
     }
 }
-function mapStateToProps({questions ,  users, authedUser}) {
+function mapStateToProps({questions , authedUser}) {
     const authedU = authedUser["authedUser"]
     let ids=  Object.keys(questions).sort((a, b) =>questions[b].timestamp -  questions[a].timestamp); 
     let idsA = ids.filter((id)=>{

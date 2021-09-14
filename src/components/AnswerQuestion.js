@@ -13,33 +13,30 @@ export class AnswerQuestion extends Component {
             answer : "",
             answered: false, 
             direction: "/"
-                }
+            }
     }
     componentDidMount(){
-        if(this.props.questionType==="answered"){
+        const {idsA  , idsU} =  this.props 
+        if(idsA.includes(this.props.id)){
         this.setState({ 
             answered :  true
         })}
-        else {
+        if(idsU.includes(this.props.id)) {
         this.setState({ 
-            answered :  false
+            answered : false
         })} 
-        this.props.location.setState({})
     }
-    
     onChangeValue = (e)=>{
         this.setState({
             answer: e.target.value,
             answered : false
         })
     }  
-    
     answered = (e)=>{
         e.preventDefault(); 
         const {dispatch ,  authedUser , id } =  this.props
         const  authedU =  authedUser["authedUser"];
         const {answer} =  this.state
-        console.log("this is " , authedUser)
         this.setState({
           answered:  true
         }) 
@@ -47,24 +44,21 @@ export class AnswerQuestion extends Component {
         alert('You did not choose an answer')} 
         dispatch(handleanswerQuestion({ authedU, id ,answer}));  
         dispatch(handleanswerQuestionU({ authedU, id ,answer}));  
-         
     }
-
-
-
     render() {
         // const {id ,question} = this.props
-        const  {question ,  user , authedUser} =   this.props? this.props :  undefined  
+        const  {question ,  user , authedUser , id  ,idsA , idsU} = this.props? this.props :  undefined  
         const {name  , avatarURL} =  user? user :  {undefined};  
         const  authedU =  authedUser["authedUser"];
         const {optionOne,optionTwo} =  question? question : {undefined};  
         const { answered} =  this.state; 
+        console.log(idsA ,  idsU)
+        console.log("this props" , this.props)
         return (
             <Fragment>
-                {authedU!==""?
+                {authedU?
                 <div>
-               {!answered? 
-                
+               {answered===false? 
                 <div className="ans-question-center">
                     <div className="ans-question">
                         <div>
@@ -92,13 +86,11 @@ export class AnswerQuestion extends Component {
                         </div>
                     </div>
                 </div> :
-                <div> 
                     <QuestionStats stats={this.props}></QuestionStats>
-                   </div>
             }
             </div>
             : 
-            <Redirect to={{pathname :  '/NotFound' }}> </Redirect>
+            <Redirect to={{pathname :  '/NotFound' , state:{target : `/questions/${id} `}}}> </Redirect>
             }
                 
 
@@ -107,17 +99,31 @@ export class AnswerQuestion extends Component {
     }
 }
 function mapStateToProps({users,questions , authedUser}, props) { 
-    const {id} =  props.match.params; 
-    const {questionType} =  props.match.params;  
-    const question = questions? questions[id] : undefined;
+    const {id} =  props.match.params ; 
+    const question =questions[id.trim()]? questions[id.trim()] :undefined;
     const user =  question? users[question.author]: undefined; 
+    let ids=  Object.keys(questions).sort((a, b) =>questions[b].timestamp -  questions[a].timestamp); 
+    let idsA = ids.filter((id)=>{
+        if(questions[id].optionOne.votes.includes(authedUser["authedUser"]) || questions[id].optionTwo.votes.includes(authedUser["authedUser"])){
+            return id
+        }
+        return null
+    })
+    let idsU =  ids.filter((id)=>{
+        if(!(questions[id].optionOne.votes.includes(authedUser["authedUser"]) || questions[id].optionTwo.votes.includes(authedUser["authedUser"]))){
+            return id
+        }
+        return null
+    })
     
     return { 
-        questionType,
         user,
         authedUser,
+        questions,
+        id : id.trim() ,
         question , 
-        id 
+        idsU : idsU,
+        idsA :  idsA,
     }
 }
 

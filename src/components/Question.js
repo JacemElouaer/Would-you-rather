@@ -6,16 +6,11 @@ import {Link ,  withRouter} from 'react-router-dom';
 
 
 class Question extends Component {
-    viewQuestion =  (e ,id)=>{
-        this.props.history.push(`/Tweet/${id}`) ;  
-
-        
-    }
+    
     render() {
         
         const {question ,  id ,  authedUser}=  this.props? this.props  : null;
         const { optionOne,user}= question; 
-        const questionType =  "unanswered"  ; 
         return (
             <Fragment>
                 { user? 
@@ -38,7 +33,7 @@ class Question extends Component {
                                 {authedUser["authedUser"]===""?
                                 <Link  to={`/login`} className="btn-question">Login to Answer</Link>
                                     : 
-                                 <Link  to={`/questions/${id}/${questionType}`} className="btn-question">View Poll</Link> 
+                                 <Link  to={`/questions/${id}`} className="btn-question">View Poll</Link> 
                                 }
                             </div> 
                         </div>

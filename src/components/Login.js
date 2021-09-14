@@ -13,7 +13,7 @@ class Login extends Component {
         this.state = {
             authedUser :  undefined,
             submit :  false , 
-            direction :  "/"
+            direction :  "/",
         }
     } 
     componentDidMount() {
@@ -36,17 +36,17 @@ class Login extends Component {
     } 
     
     handleChange=(e)=>{
-        console.log('authed user selected')
         this.setState({
             authedUser: e.target.value,
         })
     }
     render() {
         const  {users , ids} =  this.props 
-        const  {authedUser ,  submit ,  direction} = this.state
+        const  {authedUser ,  submit ,  direction } = this.state
         if(submit) {
             return <Redirect to={direction}>  </Redirect>            
         }
+       
         return (
             <Fragment>
                 <div className="login-box">
