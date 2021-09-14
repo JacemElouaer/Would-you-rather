@@ -47,9 +47,8 @@ class Login extends Component {
         console.log(id)
         
         if(submit) {
-            if (typeof(id)!=="undefined" && (!idsQ.includes(id))) {
-                console.log(direction)
-                console.log(id)
+            if (typeof(id)!=="undefined" && idsQ.includes(id)===true) {
+                console.log(idsQ.includes(id))
                 return <Redirect to={`${direction}/Error`}></Redirect>
             }
             return <Redirect to={direction}></Redirect>            
