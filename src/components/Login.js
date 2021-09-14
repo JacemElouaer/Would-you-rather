@@ -16,13 +16,7 @@ class Login extends Component {
             direction :  "/",
         }
     } 
-    componentDidMount() {
-        this.props.location.state?
-        this.setState({
-            direction : this.props.location.state.target
-        }):
-        console.log("No target available") 
-    }
+    
     login=(e)=>{
         e.preventDefault();
         const  {authedUser} = this.state
@@ -40,15 +34,24 @@ class Login extends Component {
             authedUser: e.target.value,
         })
     }
+    componentDidMount(props) {
+        this.props.location.state?
+        this.setState({
+            direction : this.props.location.state.target
+        }):
+        console.log("No target available") 
+    }
     render() {
         const  {users , ids ,idsQ} =  this.props 
         const  {authedUser ,  submit ,  direction } = this.state
-        const id =  direction.split('/')[2]
-        console.log(id)
+        
+        const id =  direction.split('/')[2]?  direction.split('/')[2] :  undefined;  
         
         if(submit) {
-            if (typeof(id)!=="undefined" && idsQ.includes(id)===true) {
-                console.log(idsQ.includes(id))
+            if (typeof(id)!=="undefined") {
+                return <Redirect to={`${direction}/Error`}></Redirect>
+            }
+            if (typeof(id)!=="undefined" && idsQ.includes(id.trim())===true) {
                 return <Redirect to={`${direction}/Error`}></Redirect>
             }
             return <Redirect to={direction}></Redirect>            

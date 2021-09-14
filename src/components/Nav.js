@@ -13,7 +13,6 @@ class Nav extends Component {
     const  {dispatch , authedUser} =  this.props
     if (!(authedUser["authedUser"]==="")){
       e.preventDefault();  
-      console.log("this will change every thing")
       dispatch(handleLogOutAutedUser())
     }
   }

@@ -170,12 +170,11 @@ export function _saveQuestion (question) {
       }
 
       res(formattedQuestion)
-    }, 1000)
+    }, 300)
   })
 }
 
 export function _saveQuestionAnswer ({ authedU, id, answer }) {
-  console.log("start the process")
   return new Promise((res, rej) => {
     setTimeout(() => {
       users = {
@@ -198,8 +197,7 @@ export function _saveQuestionAnswer ({ authedU, id, answer }) {
           }
         }
       }
-
       res()
-    }, 500)
+    }, 300)
   })
 }

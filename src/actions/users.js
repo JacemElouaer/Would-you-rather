@@ -21,7 +21,6 @@ export function addQuestion(id, authedUser) {
 }
 export function handleAddQuestionUser(id ,  authedUser){
     return (dispatch)=>{
-        console.log("this is the add questio in add user");  
         dispatch(addQuestion(id ,  authedUser))
     }
 }
@@ -38,7 +37,6 @@ export  function answerQuestionU(info){
 
 export default function handleanswerQuestionU(info){
     return (dispatch)=> {
-        console.log("adding to the user") 
         dispatch(answerQuestionU(info))
     }
 }

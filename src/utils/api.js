@@ -15,7 +15,6 @@ export function getInitialData(){
 } 
 
 export default function saveQuestionAnswer(info){
-    console.log('passed to the _data')
     return _saveQuestionAnswer(info)
 } 
 export function saveQuestion(question){
