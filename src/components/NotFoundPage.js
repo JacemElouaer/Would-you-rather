@@ -3,16 +3,18 @@ import {Redirect ,  Link} from "react-router-dom"
 import {connect} from  "react-redux"
 
 class  NotFound  extends Component {
+   
 
     
     render() {
         const  {authedUser} =  this.props
+        console.log(this.props.location.pathname)
         
         
     return (
         <Fragment> 
             { authedUser['authedUser'] ===""?            
-        <Redirect to={{pathname:"/NotFound" , state:{target :this.props.location.pathname}}}></Redirect>:
+        <Redirect to={{pathname:"/NotFound" , state:{ target :this.props.location.pathname} }}></Redirect>:
         
             <div className="row justify-content-center">
     <div className="col-md-12 col-sm-12">
